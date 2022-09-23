@@ -1,0 +1,83 @@
+{
+  "title": "Tracking Synchytrium endobioticum, the Potato Wart Disease pathogen",
+  "color_options": {
+    "pathotype": {
+      "legendTitle": "Pathotype",
+      "key": "pathotype",
+      "menuItem": "pathotype",
+      "type": "discrete"
+    },
+    "haplogroup": {
+      "legendTitle": "Haplogroup",
+      "key": "haplogroup",
+      "menuItem": "haplogroup",
+      "type": "discrete"
+    },    
+	"main_variant": {
+      "legendTitle": "dominant mtDNA variant",
+      "key": "main_variant",
+      "menuItem": "dominant mtDNA variant",
+      "type": "discrete"
+    },
+	"variant_mixture": {
+      "legendTitle": "mixture of mtDNA variants",
+      "key": "variant_mixture",
+      "menuItem": "mixture of mtDNA variants",
+      "type": "discrete"
+    },
+	"host": {
+      "legendTitle": "host",
+      "key": "host",
+      "menuItem": "host",
+      "type": "discrete"
+    },
+    "gt": {
+      "menuItem": "genotype",
+      "legendTitle": "Genotype",
+      "type": "discrete",
+      "key": "genotype"
+    },
+    "num_date": {
+      "menuItem": "date",
+      "legendTitle": "Sampling date",
+      "type": "continuous",
+      "key": "num_date"
+    },
+    "country": {
+    },
+    "continent": {
+    },
+    "municipality": {
+    }
+  },
+  "geo": [
+    "continent",
+    "country",
+    "state",
+    "municipality"
+  ],
+  "panels":[
+     "tree",
+     "map",
+     "entropy"
+  ],
+  "defaults": {
+    "mapTriplicate": true
+  },
+  "maintainer": [
+    "Bart T.L.H. van de Vossenberg",
+    "https://www.nvwa.nl"
+  ],
+  "filters": [
+	"continent",
+	"country",
+	"municipality",
+	"sendotrack",
+	"pathotype",
+	"isolate",
+	"main_variant",
+	"variant_mixture",
+	"host",
+	"haplogroup"
+  ]
+}

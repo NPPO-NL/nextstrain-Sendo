@@ -1,0 +1,5 @@
+nextstrain-Sendo
+
+Nextstrain (github.com/Nextstrain/) was used for tracking Synchytrium endobioticum, the Potato Wart Disease pathogen. All files necessary to run Augur are present in the data and config directory. In the data directory a multi-fasta file contains all included genomes. All metadata that belong to these genomes can be found in the .tsv file. The config directory contains the lat-long file, the auspice config file, and the annotated reference genome file, which is necessary to determine the amino acid changes.
+
+We included the json file that is necessary for visualization by auspice. However, this file can also be generated using the Snakefile included, which runs each step in Augur. Before running the Snakefile, empty (or rename the json files in) the auspice directory and add an empty results directory.

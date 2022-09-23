@@ -1,0 +1,99 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 16
+Rules claiming more threads will be scaled down.
+Job stats:
+job          count    min threads    max threads
+---------  -------  -------------  -------------
+align            1              1              1
+all              1              1              1
+ancestral        1              1              1
+export           1              1              1
+refine           1              1              1
+traits           1              1              1
+translate        1              1              1
+tree             1              1              1
+total            8              1              1
+
+Select jobs to execute...
+
+[Fri Aug  5 08:55:31 2022]
+Job 4: 
+        Aligning sequences to data/Sendo_20220801.fa
+          - filling gaps with N
+        
+Reason: Forced execution
+
+[Fri Aug  5 08:56:22 2022]
+Finished job 4.
+1 of 8 steps (12%) done
+Select jobs to execute...
+
+[Fri Aug  5 08:56:22 2022]
+Job 3: Building tree
+Reason: Missing output files: results/tree.nwk; Input files updated by another job: results/aligned.fasta
+
+[Fri Aug  5 08:56:51 2022]
+Finished job 3.
+2 of 8 steps (25%) done
+Select jobs to execute...
+
+[Fri Aug  5 08:56:51 2022]
+Job 2: 
+        Refining tree
+          - estimate timetree
+          - use opt coalescent timescale
+          - estimate marginal node dates
+        
+Reason: Missing output files: results/branch_lengths.json, results/refined_tree.nwk; Input files updated by another job: results/tree.nwk, results/aligned.fasta
+
+[Fri Aug  5 08:58:03 2022]
+Finished job 2.
+3 of 8 steps (38%) done
+Select jobs to execute...
+
+[Fri Aug  5 08:58:03 2022]
+Job 5: Infer ancestral traits from an existing phylogenetic tree and the metadata annotating each tip of the tree
+Reason: Missing output files: results/traits.json; Input files updated by another job: results/refined_tree.nwk
+
+
+[Fri Aug  5 08:58:03 2022]
+Job 6: Reconstructing ancestral sequences and mutations
+Reason: Missing output files: results/nt_muts.json; Input files updated by another job: results/refined_tree.nwk, results/aligned.fasta
+
+[Fri Aug  5 08:58:08 2022]
+Finished job 5.
+4 of 8 steps (50%) done
+[Fri Aug  5 08:58:16 2022]
+Finished job 6.
+5 of 8 steps (62%) done
+Select jobs to execute...
+
+[Fri Aug  5 08:58:16 2022]
+Job 7: Translating amino acid sequences
+Reason: Missing output files: results/aa_muts.json; Input files updated by another job: results/nt_muts.json, results/refined_tree.nwk
+
+[Fri Aug  5 08:58:18 2022]
+Finished job 7.
+6 of 8 steps (75%) done
+Select jobs to execute...
+
+[Fri Aug  5 08:58:18 2022]
+Job 1: Exporting data files fo auspice
+Reason: Missing output files: auspice/Sendo_20220801.json; Input files updated by another job: results/aa_muts.json, results/nt_muts.json, results/traits.json, results/refined_tree.nwk, results/branch_lengths.json
+
+[Fri Aug  5 08:58:21 2022]
+Error in rule export:
+    jobid: 1
+    output: auspice/Sendo_20220801.json
+    shell:
+        
+        augur export v2             --tree results/refined_tree.nwk             --metadata data/Sendo_meta_20220801.tsv             --node-data results/branch_lengths.json results/traits.json results/nt_muts.json results/aa_muts.json             --lat-longs config/lat_longs.tsv             --colors config/colors.tsv             --auspice-config config/auspice_config.json             --description config/description.md             --output auspice/Sendo_20220801.json
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job export since they might be corrupted:
+auspice/Sendo_20220801.json
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2022-08-05T085531.116758.snakemake.log
